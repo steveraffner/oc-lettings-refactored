@@ -1,3 +1,38 @@
 **/__pycache__
 *.pyc
 venv
+
+# Environnement
+.env
+.env.local
+
+# Base de données
+*.sqlite3
+db.sqlite3
+
+# Fichiers statiques collectés
+/staticfiles/
+/static/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MacOS
+.DS_Store
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+
+# Distribution
+dist/
+build/
+*.egg-info/
