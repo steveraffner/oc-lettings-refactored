@@ -1,11 +1,11 @@
-# 🎤 Téléprompteur de Soutenance - OC Lettings
+#  Téléprompteur de Soutenance - OC Lettings
 
 **Durée : 15 minutes (±5 minutes)**  
 **Date de soutenance : _________**
 
 ---
 
-## 📋 INTRODUCTION (1 minute)
+##  INTRODUCTION (1 minute)
 
 > *"Bonjour Dominique, je vais vous présenter les améliorations apportées au site OC Lettings. J'ai travaillé sur 5 axes majeurs conformément à vos demandes :*
 > 
@@ -19,9 +19,9 @@
 
 ---
 
-## 💻 PARTIE 1 : DÉMONSTRATION LOCALE (3 minutes)
+##  PARTIE 1 : DÉMONSTRATION LOCALE (3 minutes)
 
-### 🔧 Lancement du site en local
+###  Lancement du site en local
 
 ```bash
 # Activer l'environnement virtuel
@@ -31,7 +31,7 @@ source venv/bin/activate
 python manage.py runserver
 ```
 
-**💬 À dire :**
+** À dire :**
 > *"Voici le site fonctionnel sur http://localhost:8000. Lors de la mise en place de l'environnement de développement, j'ai rencontré quelques défis :*
 > 
 > - **[Mentionner vos problèmes réels]** : 
@@ -42,7 +42,7 @@ python manage.py runserver
 > 
 > *Je les ai résolus en [expliquer brièvement vos solutions]."*
 
-### 🌐 Parcourir le site
+###  Parcourir le site
 
 **Montrer dans l'ordre :**
 
@@ -64,12 +64,12 @@ python manage.py runserver
 
 ---
 
-## 🏗️ PARTIE 2 : ARCHITECTURE MODULAIRE (2 minutes)
+## ️ PARTIE 2 : ARCHITECTURE MODULAIRE (2 minutes)
 
-**💬 À dire :**
+** À dire :**
 > *"J'ai restructuré l'application monolithique initiale en 3 applications Django distinctes pour améliorer la maintenabilité et la scalabilité :*
 
-### 📦 Structure des applications
+###  Structure des applications
 
 ```
 oc-lettings/
@@ -96,7 +96,7 @@ oc-lettings/
     └── migrations/       # Migrations données
 ```
 
-**💬 Continuer :**
+** Continuer :**
 > *"Les migrations personnalisées ont permis de copier les données des anciens modèles vers les nouveaux sans perte :*
 > 
 > - *Utilisation de `apps.get_model()` pour accéder aux modèles*
@@ -108,12 +108,12 @@ oc-lettings/
 
 ---
 
-## 🧹 PARTIE 3 : RÉDUCTION DE LA DETTE TECHNIQUE (1,5 minute)
+##  PARTIE 3 : RÉDUCTION DE LA DETTE TECHNIQUE (1,5 minute)
 
-**💬 À dire :**
+** À dire :**
 > *"J'ai travaillé sur 5 points pour réduire la dette technique :*
 
-### ✅ 1. Linting avec Flake8
+###  1. Linting avec Flake8
 
 ```bash
 flake8
@@ -121,7 +121,7 @@ flake8
 
 > *"Aucune erreur de linting détectée. Le code respecte les conventions PEP 8."*
 
-### ✅ 2. Docstrings
+###  2. Docstrings
 
 > *"Tous les modules, classes et fonctions sont documentés avec des docstrings explicatives :*
 > - *Description de la fonctionnalité*
@@ -144,7 +144,7 @@ def index(request):
     return render(request, 'index.html')
 ```
 
-### ✅ 3. Tests et couverture >80%
+###  3. Tests et couverture >80%
 
 ```bash
 pytest --cov=. --cov-report=term-missing
@@ -163,13 +163,13 @@ pytest --cov=. --cov-report=term-missing
 > - *Les URLs (résolution des routes)*
 > - *L'intégration admin"*
 
-### ✅ 4. Pluralisation correcte dans l'admin
+###  4. Pluralisation correcte dans l'admin
 
 > *"Configuration de `verbose_name_plural` dans les modèles pour corriger :*
 > - *'Profiles' → 'Profiles' (correct)*
 > - *'Addresss' → 'Addresses' (corrigé)"*
 
-### ✅ 5. Pages d'erreur personnalisées
+###  5. Pages d'erreur personnalisées
 
 > *"Création de templates personnalisés :*
 > - *`404.html` : Page non trouvée*
@@ -179,11 +179,11 @@ pytest --cov=. --cov-report=term-missing
 
 ---
 
-## 🚀 PARTIE 4 : PIPELINE CI/CD ET DÉPLOIEMENT (5 minutes) ⭐
+##  PARTIE 4 : PIPELINE CI/CD ET DÉPLOIEMENT (5 minutes) 
 
-### 📋 Architecture du pipeline
+###  Architecture du pipeline
 
-**💬 À dire :**
+** À dire :**
 > *"Le pipeline CI/CD est configuré avec GitHub Actions et comprend 4 étapes automatisées :*
 
 ```yaml
@@ -198,7 +198,7 @@ Pipeline CI/CD :
 
 ---
 
-### 🎬 DÉMONSTRATION EN DIRECT : Modification et Redéploiement
+###  DÉMONSTRATION EN DIRECT : Modification et Redéploiement
 
 #### **Étape 1 : Modifier le titre de la page d'accueil** ⏱️ 30 sec
 
@@ -216,7 +216,7 @@ code templates/index.html
 <title>OC Lettings - Welcome 2026</title>
 ```
 
-**💬 À dire :**
+** À dire :**
 > *"Je modifie maintenant le titre de la page d'accueil comme vous l'avez demandé."*
 
 ---
@@ -229,7 +229,7 @@ git commit -m "feat: Update homepage title for presentation demo"
 git push origin main
 ```
 
-**💬 À dire :**
+** À dire :**
 > *"Je pousse les modifications sur la branche main, ce qui va automatiquement déclencher le pipeline CI/CD."*
 
 ---
@@ -241,13 +241,13 @@ git push origin main
 2. Cliquer sur le workflow en cours d'exécution
 3. Expliquer chaque étape en temps réel
 
-**💬 À dire pendant que le pipeline tourne :**
+** À dire pendant que le pipeline tourne :**
 
 > *"Vous pouvez voir le pipeline se dérouler :*
 > 
-> - **✅ Setup** : Installation de Python et des dépendances
-> - **✅ Linting** : Vérification flake8 en cours...
-> - **✅ Tests** : Exécution de la suite de tests avec pytest...
+> - ** Setup** : Installation de Python et des dépendances
+> - ** Linting** : Vérification flake8 en cours...
+> - ** Tests** : Exécution de la suite de tests avec pytest...
 > - **⏳ Build Docker** : Construction de l'image Docker...
 > - **⏳ Push Docker Hub** : Envoi de l'image vers Docker Hub...
 > - **⏳ Deploy** : Déploiement sur [Render/Railway/Heroku]...
@@ -263,7 +263,7 @@ git push origin main
 https://hub.docker.com/r/[votre-username]/oc-lettings
 ```
 
-**💬 À dire :**
+** À dire :**
 > *"Pendant que le déploiement se termine, regardons Docker Hub :*
 > - *Voici le repository avec l'image Docker*
 > - *Système de tags : `latest` et `[SHA-commit]`*
@@ -281,12 +281,12 @@ https://[votre-app].onrender.com
 https://[votre-app].herokuapp.com
 ```
 
-**💬 À dire :**
+** À dire :**
 > *"Le déploiement est maintenant terminé. Vous pouvez constater que :*
-> - ✅ *Le nouveau titre apparaît bien : 'OC Lettings - Welcome 2026'*
-> - ✅ *Le site est entièrement fonctionnel en production*
-> - ✅ *Les fichiers statiques se chargent correctement*
-> - ✅ *La base de données PostgreSQL est opérationnelle"*
+> -  *Le nouveau titre apparaît bien : 'OC Lettings - Welcome 2026'*
+> -  *Le site est entièrement fonctionnel en production*
+> -  *Les fichiers statiques se chargent correctement*
+> -  *La base de données PostgreSQL est opérationnelle"*
 
 **Naviguer rapidement dans le site :**
 - Page d'accueil
@@ -309,7 +309,7 @@ docker run -p 8000:8000 \
   steveraffner/oc-lettings:latest
 ```
 
-**💬 À dire :**
+** À dire :**
 > *"L'image Docker fonctionne parfaitement en local avec exactement la même configuration qu'en production :*
 > - *Port 8000 exposé*
 > - *Variables d'environnement injectées*
@@ -323,9 +323,9 @@ docker run -p 8000:8000 \
 
 ---
 
-## 🔍 PARTIE 5 : MONITORING AVEC SENTRY (1,5 minute)
+##  PARTIE 5 : MONITORING AVEC SENTRY (1,5 minute)
 
-**💬 À dire :**
+** À dire :**
 > *"J'ai intégré Sentry pour la surveillance en temps réel des erreurs en production :*
 
 ### Configuration
@@ -346,7 +346,7 @@ if SENTRY_DSN:
     )
 ```
 
-**💬 Continuer :**
+** Continuer :**
 > *"Les points clés de l'intégration Sentry :*
 > - *DSN stocké en variable d'environnement (sécurisé)*
 > - *Capture automatique des exceptions non gérées*
@@ -371,22 +371,22 @@ def trigger_error(request):
 3. Les variables locales
 4. Le contexte de la requête
 
-**💬 À dire :**
+** À dire :**
 > *"Sentry nous permet de détecter et résoudre rapidement les bugs en production avant qu'ils n'affectent trop d'utilisateurs."*
 
 ---
 
-## 📚 PARTIE 6 : DOCUMENTATION READ THE DOCS (1 minute)
+##  PARTIE 6 : DOCUMENTATION READ THE DOCS (1 minute)
 
 **Ouvrir la documentation :**
 ```
 https://[votre-projet].readthedocs.io
 ```
 
-**💬 À dire :**
+** À dire :**
 > *"La documentation technique est hébergée sur Read The Docs et comprend :*
 
-### 📖 Structure de la documentation
+###  Structure de la documentation
 
 1. **Installation** : Guide de mise en place locale
 2. **Architecture** : Explication des 3 applications
@@ -395,7 +395,7 @@ https://[votre-projet].readthedocs.io
 5. **Tests** : Guide pour lancer les tests
 6. **Contribution** : Bonnes pratiques pour l'équipe
 
-**💬 Continuer :**
+** Continuer :**
 > *"Points importants :*
 > - *Création avec Sphinx et reStructuredText*
 > - *Génération automatique depuis les docstrings Python*
@@ -405,25 +405,25 @@ https://[votre-projet].readthedocs.io
 
 ---
 
-## 🎯 CONCLUSION (30 secondes)
+##  CONCLUSION (30 secondes)
 
-**💬 À dire :**
+** À dire :**
 > *"Pour résumer, l'application OC Lettings est maintenant :*
 > 
-> - ✅ **Modulaire** : Architecture en 3 applications indépendantes et maintenables
-> - ✅ **Propre** : Dette technique réduite, code documenté, tests >80%
-> - ✅ **Automatisée** : Pipeline CI/CD avec tests automatiques et déploiement continu
-> - ✅ **Conteneurisée** : Image Docker portable et reproductible
-> - ✅ **Surveillée** : Monitoring Sentry pour détecter les erreurs rapidement
-> - ✅ **Documentée** : Documentation complète sur Read The Docs
+> -  **Modulaire** : Architecture en 3 applications indépendantes et maintenables
+> -  **Propre** : Dette technique réduite, code documenté, tests >80%
+> -  **Automatisée** : Pipeline CI/CD avec tests automatiques et déploiement continu
+> -  **Conteneurisée** : Image Docker portable et reproductible
+> -  **Surveillée** : Monitoring Sentry pour détecter les erreurs rapidement
+> -  **Documentée** : Documentation complète sur Read The Docs
 >
 > *L'application est prête pour la production et peut facilement être mise à l'échelle pour l'expansion aux États-Unis. Le processus de déploiement est entièrement automatisé et sécurisé."*
 
 ---
 
-## 📌 CHECKLIST AVANT SOUTENANCE
+##  CHECKLIST AVANT SOUTENANCE
 
-### ✅ Préparation technique
+###  Préparation technique
 
 - [ ] Repository GitHub public accessible
 - [ ] Site fonctionne en local (`python manage.py runserver`)
@@ -436,7 +436,7 @@ https://[votre-projet].readthedocs.io
 - [ ] Read The Docs publié et accessible
 - [ ] Toutes les variables d'environnement configurées
 
-### ✅ Préparation démonstration
+###  Préparation démonstration
 
 - [ ] Tester `docker pull` et `docker run` AVANT la soutenance
 - [ ] Préparer la modification dans `templates/index.html`
@@ -448,7 +448,7 @@ https://[votre-projet].readthedocs.io
 - [ ] Docker Hub ouvert dans un onglet
 - [ ] Terminal prêt avec commandes Docker
 
-### ✅ Documents à avoir sous la main
+###  Documents à avoir sous la main
 
 - [ ] URL du repository GitHub
 - [ ] URL du site en production
@@ -460,7 +460,7 @@ https://[votre-projet].readthedocs.io
 
 ---
 
-## ⚠️ QUESTIONS PROBABLES ET RÉPONSES
+## ️ QUESTIONS PROBABLES ET RÉPONSES
 
 ### 1️⃣ "Pourquoi avoir choisi [Render/Railway/Heroku] ?"
 
@@ -623,28 +623,28 @@ https://[votre-projet].readthedocs.io
 
 ---
 
-## 🎬 CONSEILS POUR LA PRÉSENTATION
+##  CONSEILS POUR LA PRÉSENTATION
 
-### ✅ À FAIRE
+###  À FAIRE
 
-- ✅ Parler clairement et à rythme modéré
-- ✅ Regarder l'évaluateur, pas seulement l'écran
-- ✅ Utiliser les termes techniques précis
-- ✅ Montrer l'URL déployée le plus tôt possible
-- ✅ Avoir les onglets pré-ouverts (GitHub, Docker Hub, Sentry, RTD)
-- ✅ Expliquer chaque étape en temps réel
-- ✅ Rester calme si un bug survient (expliquer le debugging)
-- ✅ Montrer de l'enthousiasme pour le projet
+-  Parler clairement et à rythme modéré
+-  Regarder l'évaluateur, pas seulement l'écran
+-  Utiliser les termes techniques précis
+-  Montrer l'URL déployée le plus tôt possible
+-  Avoir les onglets pré-ouverts (GitHub, Docker Hub, Sentry, RTD)
+-  Expliquer chaque étape en temps réel
+-  Rester calme si un bug survient (expliquer le debugging)
+-  Montrer de l'enthousiasme pour le projet
 
-### ❌ À ÉVITER
+###  À ÉVITER
 
-- ❌ Lire mot à mot le téléprompteur
-- ❌ Aller trop vite ou trop lentement
-- ❌ Paniquer si le pipeline prend du temps
-- ❌ Improviser sans préparation
-- ❌ Oublier de montrer les modifications déployées
-- ❌ Négliger les questions de l'évaluateur
-- ❌ Utiliser du jargon sans l'expliquer
+-  Lire mot à mot le téléprompteur
+-  Aller trop vite ou trop lentement
+-  Paniquer si le pipeline prend du temps
+-  Improviser sans préparation
+-  Oublier de montrer les modifications déployées
+-  Négliger les questions de l'évaluateur
+-  Utiliser du jargon sans l'expliquer
 
 ---
 
@@ -661,11 +661,11 @@ https://[votre-projet].readthedocs.io
 | Read The Docs | 1 min | 15 min |
 | Conclusion | 0,5 min | 15,5 min |
 
-**⚠️ Temps limite : 10-20 minutes (refus si hors limites)**
+**️ Temps limite : 10-20 minutes (refus si hors limites)**
 
 ---
 
-## 📞 CONTACT ET DERNIERS RAPPELS
+##  CONTACT ET DERNIERS RAPPELS
 
 ### Avant la soutenance (48h avant)
 - [ ] Tester TOUT le parcours de A à Z
@@ -678,11 +678,11 @@ https://[votre-projet].readthedocs.io
 - [ ] Ouvrir tous les onglets nécessaires
 - [ ] Tester le micro et la caméra
 - [ ] Avoir une bouteille d'eau à portée
-- [ ] Respirer profondément et rester confiant(e) 💪
+- [ ] Respirer profondément et rester confiant(e) 
 
 ---
 
-## 🚀 BONNE CHANCE !
+##  BONNE CHANCE !
 
 *Vous avez travaillé dur sur ce projet. Vous maîtrisez le sujet. Faites confiance à votre préparation et montrez votre expertise avec assurance !*
 

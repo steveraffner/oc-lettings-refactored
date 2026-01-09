@@ -6,7 +6,7 @@
 
 Application Django modernisée pour la gestion de locations immobilières et de profils utilisateurs.
 
-## 🚀 Installation rapide
+## Installation rapide
 
 \`\`\`bash
 git clone https://github.com/steveraffner/oc-lettings-refactored.git
@@ -17,7 +17,7 @@ python manage.py migrate
 python manage.py runserver
 \`\`\`
 
-## 📚 Documentation complète
+## Documentation complète
 
 La documentation détaillée est disponible dans le dossier \`docs/\`.
 
@@ -27,14 +27,14 @@ Pour construire la documentation :
 cd docs && make html
 \`\`\`
 
-## 🧪 Tests
+## Tests
 
 \`\`\`bash
 pytest --cov=. --cov-report=html
 flake8
 \`\`\`
 
-## 🐳 Docker
+## Docker
 
 \`\`\`bash
 docker-compose up
