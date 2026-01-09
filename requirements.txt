@@ -1,5 +1,5 @@
 # Core Django
-django==4.2.11
+django==4.2.27
 python-decouple==3.8
 
 # Production server
