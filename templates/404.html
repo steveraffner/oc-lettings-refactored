@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Page non trouvée{% endblock %}
+
+{% block content %}
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        <div class="row justify-content-center py-5">
+            <div class="col-md-8 text-center">
+                <h1 class="display-1 fw-bold text-primary">404</h1>
+                <h2 class="mb-4">Page non trouvée</h2>
+                <p class="lead mb-4">
+                    Désolé, la page que vous recherchez n'existe pas ou a été déplacée.
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="{% url 'index' %}" class="btn btn-primary px-4">
+                        <i class="fas fa-home me-2"></i>Retour à l'accueil
+                    </a>
+                    <a href="{% url 'lettings:index' %}" class="btn btn-outline-primary px-4">
+                        Voir les locations
+                    </a>
+                    <a href="{% url 'profiles:index' %}" class="btn btn-outline-primary px-4">
+                        Voir les profils
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

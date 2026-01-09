@@ -1,0 +1,60 @@
+# Fichier .dockerignore pour exclure les fichiers inutiles
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+oc-lettings-site.sqlite3
+media/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+docs/_build/
+TELEPROMPTEUR.md
+
+# CI/CD
+.github/
+.circleci/
+
+# Tests
+.pytest_cache/
+htmlcov/
+
+# Node (si utilisé)
+node_modules/
+npm-debug.log
+yarn-error.log
