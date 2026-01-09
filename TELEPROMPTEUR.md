@@ -299,14 +299,14 @@ https://[votre-app].herokuapp.com
 
 ```bash
 # Pull de l'image depuis Docker Hub
-docker pull steveraffner/oc-lettings:latest
+docker pull immeuble11/oc-lettings:latest
 
 # Lancement du conteneur
 docker run -p 8000:8000 \
   -e SECRET_KEY="demo-secret-key-for-presentation" \
   -e DEBUG=False \
   -e ALLOWED_HOSTS="localhost,127.0.0.1" \
-  steveraffner/oc-lettings:latest
+  immeuble11/oc-lettings:latest
 ```
 
 ** À dire :**
@@ -508,7 +508,7 @@ https://[votre-projet].readthedocs.io
 > 
 > **Option 1 - Via Docker Hub :**
 > ```bash
-> docker pull steveraffner/oc-lettings:[SHA-previous-commit]
+> docker pull immeuble11/oc-lettings:[SHA-previous-commit]
 > # Redéployer cette version
 > ```
 >
