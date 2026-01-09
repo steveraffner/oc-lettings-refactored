@@ -2,6 +2,9 @@
 *.pyc
 venv
 
+# Documentation personnelle
+TELEPROMPTEUR.md
+
 # Environnement
 .env
 .env.local
