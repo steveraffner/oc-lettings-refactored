@@ -150,6 +150,13 @@ def index(request):
 pytest --cov=. --cov-report=term-missing
 ```
 
+> *"J'ai obtenu une couverture de 98% avec 15 tests passés :*
+> - *7 tests pour l'application lettings (modèles + vues)*
+> - *6 tests pour l'application profiles (modèles + vues)*
+> - *2 tests pour la page d'accueil*
+>
+> *La couverture dépasse largement l'objectif de 80% fixé."*
+
 > *"Couverture de test supérieure à 80% avec pytest-django et pytest-cov. Les tests couvrent :*
 > - *Les modèles (création, validation)*
 > - *Les vues (GET requests, contexte)*
@@ -292,14 +299,14 @@ https://[votre-app].herokuapp.com
 
 ```bash
 # Pull de l'image depuis Docker Hub
-docker pull [votre-username]/oc-lettings:latest
+docker pull steveraffner/oc-lettings:latest
 
 # Lancement du conteneur
 docker run -p 8000:8000 \
   -e SECRET_KEY="demo-secret-key-for-presentation" \
   -e DEBUG=False \
   -e ALLOWED_HOSTS="localhost,127.0.0.1" \
-  [votre-username]/oc-lettings:latest
+  steveraffner/oc-lettings:latest
 ```
 
 **💬 À dire :**
@@ -307,6 +314,8 @@ docker run -p 8000:8000 \
 > - *Port 8000 exposé*
 > - *Variables d'environnement injectées*
 > - *Application prête en quelques secondes*
+> - *Build multi-stage optimisé pour réduire la taille*
+> - *Utilisateur non-root pour la sécurité*
 >
 > *Cela garantit la portabilité et la reproductibilité des déploiements."*
 
@@ -325,18 +334,25 @@ docker run -p 8000:8000 \
 # Dans settings.py
 import sentry_sdk
 
-sentry_sdk.init(
-    dsn=os.environ.get('SENTRY_DSN'),
-    traces_sample_rate=1.0,
-    profiles_sample_rate=1.0,
-)
+SENTRY_DSN = config('SENTRY_DSN', default='')
+
+if SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=SENTRY_DSN,
+        traces_sample_rate=1.0 if DEBUG else 0.1,
+        profiles_sample_rate=1.0 if DEBUG else 0.1,
+        environment='development' if DEBUG else 'production',
+        send_default_pii=False,
+    )
 ```
 
 **💬 Continuer :**
 > *"Les points clés de l'intégration Sentry :*
 > - *DSN stocké en variable d'environnement (sécurisé)*
 > - *Capture automatique des exceptions non gérées*
-> - *Logging configuré aux points critiques*
+> - *Traces de performance (10% en production)*
+> - *Profiling activé (10% en production)*
+> - *Tags d'environnement (dev/production)*
 > - *Contexte utilisateur et stack trace complète*
 > - *Alertes par email en cas d'erreur critique"*
 
@@ -492,7 +508,7 @@ https://[votre-projet].readthedocs.io
 > 
 > **Option 1 - Via Docker Hub :**
 > ```bash
-> docker pull [username]/oc-lettings:[SHA-previous-commit]
+> docker pull steveraffner/oc-lettings:[SHA-previous-commit]
 > # Redéployer cette version
 > ```
 >
@@ -504,7 +520,7 @@ https://[votre-projet].readthedocs.io
 > ```
 >
 > **Option 3 - Via la plateforme :**
-> - Render/Railway : Rollback depuis le dashboard
+> - Render : Rollback depuis le dashboard
 > - Redéploiement d'une version précédente en 1 clic
 >
 > *Toutes les versions sont tagguées et accessibles sur Docker Hub."*
@@ -524,14 +540,19 @@ https://[votre-projet].readthedocs.io
 > **Phase 2 - Copie des données (migration personnalisée) :**
 > ```python
 > def copy_data(apps, schema_editor):
->     OldProfile = apps.get_model('oc_lettings_site', 'Profile')
->     NewProfile = apps.get_model('profiles', 'Profile')
->     
->     for old_profile in OldProfile.objects.all():
->         NewProfile.objects.create(
->             user=old_profile.user,
->             favorite_city=old_profile.favorite_city
->         )
+>     try:
+>         OldProfile = apps.get_model('oc_lettings_site', 'Profile')
+>         NewProfile = apps.get_model('profiles', 'Profile')
+>         
+>         for old_profile in OldProfile.objects.all():
+>             NewProfile.objects.create(
+>                 id=old_profile.id,
+>                 user=old_profile.user,
+>                 favorite_city=old_profile.favorite_city
+>             )
+>     except LookupError:
+>         # L'ancienne app n'existe pas (ex: test database)
+>         pass
 > ```
 >
 > **Phase 3 - Suppression des anciens modèles :**
