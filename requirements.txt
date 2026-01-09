@@ -1,3 +1,22 @@
-django==3.0
-flake8==3.7.0
-pytest-django==3.9.0
+# Core Django
+django==4.2.11
+python-decouple==3.8
+
+# Production server
+gunicorn==21.2.0
+whitenoise==6.6.0
+
+# Testing
+pytest==8.0.0
+pytest-django==4.8.0
+pytest-cov==4.1.0
+
+# Code quality
+flake8==7.0.0
+
+# Monitoring
+sentry-sdk==1.40.5
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
