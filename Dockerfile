@@ -45,6 +45,9 @@ ENV PATH=/home/appuser/.local/bin:$PATH
 # Appliquer les migrations de la base de données
 RUN python manage.py migrate --noinput
 
+# Créer des données d'exemple pour la démonstration
+RUN python manage.py create_sample_data
+
 # Collecter les fichiers statiques
 RUN python manage.py collectstatic --noinput
 
