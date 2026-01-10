@@ -1,0 +1,4 @@
+Lien vers le pipeline CI/CD (GitHub Actions) :
+https://github.com/steveraffner/oc-lettings-refactored/actions
+
+Les builds sont accessibles publiquement.
