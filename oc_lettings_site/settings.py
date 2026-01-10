@@ -120,7 +120,7 @@ STATICFILES_DIRS = [BASE_DIR / "static",]
 
 # WhiteNoise configuration for static files (seulement en production)
 if not DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 # Sentry configuration for error tracking
