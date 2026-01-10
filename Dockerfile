@@ -22,26 +22,28 @@ RUN pip install --user -r requirements.txt
 FROM python:3.13-slim
 
 ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PATH=/root/.local/bin:$PATH
+    PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /app
-
-# Copier les dépendances Python du builder
-COPY --from=builder /root/.local /root/.local
 
 # Créer un utilisateur non-root
 RUN useradd -m -u 1000 appuser && \
     chown -R appuser:appuser /app
 
+# Copier les dépendances Python du builder dans le home de appuser
+COPY --from=builder --chown=appuser:appuser /root/.local /home/appuser/.local
+
 # Copier le code de l'application
 COPY --chown=appuser:appuser . .
 
-# Collecter les fichiers statiques
-RUN python manage.py collectstatic --noinput
-
 # Passer à l'utilisateur non-root
 USER appuser
+
+# Ajouter le bin de appuser au PATH
+ENV PATH=/home/appuser/.local/bin:$PATH
+
+# Collecter les fichiers statiques
+RUN python manage.py collectstatic --noinput
 
 # Exposer le port
 EXPOSE 8000
