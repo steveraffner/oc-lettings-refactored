@@ -323,6 +323,11 @@ docker run -p 8000:8000 \
 
 ##  PARTIE 5 : MONITORING AVEC SENTRY (1,5 minute)
 
+**Ouvrir Sentry dans le navigateur :**
+```
+https://steve-raffner.sentry.io/projects/oc-lettings/
+```
+
 ** À dire :**
 > *"J'ai intégré Sentry pour la surveillance en temps réel des erreurs en production :*
 
