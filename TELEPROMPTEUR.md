@@ -236,7 +236,11 @@ git push origin main
 
 #### **Étape 3 : Montrer le pipeline GitHub Actions** ⏱️ 2 min
 
-**Aller sur GitHub :**
+**Aller sur GitHub Actions :**
+```
+https://github.com/steveraffner/oc-lettings-refactored/actions
+```
+
 1. Ouvrir l'onglet **Actions**
 2. Cliquer sur le workflow en cours d'exécution
 3. Expliquer chaque étape en temps réel
@@ -379,15 +383,22 @@ def trigger_error(request):
 
 ---
 
-##  PARTIE 6 : DOCUMENTATION READ THE DOCS (1 minute)
+##  PARTIE 6 : DOCUMENTATION SPHINX (1 minute)
 
-**Ouvrir la documentation :**
+**Ouvrir la documentation locale :**
+```bash
+cd docs
+make html
+open _build/html/index.html
 ```
-https://[votre-projet].readthedocs.io
+
+Ou montrer la structure sur GitHub :
+```
+https://github.com/steveraffner/oc-lettings-refactored/tree/main/docs
 ```
 
 ** À dire :**
-> *"La documentation technique est hébergée sur Read The Docs et comprend :*
+> *"La documentation technique est générée avec Sphinx et comprend :*
 
 ###  Structure de la documentation
 
@@ -402,8 +413,9 @@ https://[votre-projet].readthedocs.io
 > *"Points importants :*
 > - *Création avec Sphinx et reStructuredText*
 > - *Génération automatique depuis les docstrings Python*
-> - *Mise à jour automatique à chaque push via webhook GitHub*
-> - *Versioning de la documentation (main, branches)*
+> - *Documentation des modèles, vues et configurations*
+> - *Thème ReadTheDocs pour une meilleure lisibilité*
+> - *Guide d'installation et de déploiement complets"*
 > - *Recherche full-text intégrée"*
 
 ---
@@ -436,7 +448,7 @@ https://[votre-projet].readthedocs.io
 - [ ] Compte Docker Hub avec images disponibles
 - [ ] Site déployé avec URL publique fonctionnelle
 - [ ] Sentry configuré avec projet actif
-- [ ] Read The Docs publié et accessible
+- [ ] Documentation Sphinx générée
 - [ ] Toutes les variables d'environnement configurées
 
 ###  Préparation démonstration
@@ -447,17 +459,17 @@ https://[votre-projet].readthedocs.io
 - [ ] Tester l'accès admin local (identifiants prêts)
 - [ ] Vérifier l'URL de production
 - [ ] Dashboard Sentry ouvert dans un onglet
-- [ ] Read The Docs ouvert dans un onglet
+- [ ] Documentation Sphinx générée et consultable
 - [ ] Docker Hub ouvert dans un onglet
 - [ ] Terminal prêt avec commandes Docker
 
 ###  Documents à avoir sous la main
 
-- [ ] URL du repository GitHub
-- [ ] URL du site en production
-- [ ] URL Docker Hub
-- [ ] URL Read The Docs
-- [ ] URL Dashboard Sentry
+- [ ] URL du repository GitHub : https://github.com/steveraffner/oc-lettings-refactored
+- [ ] URL du site en production : https://oc-lettings-av9a.onrender.com
+- [ ] URL Docker Hub : https://hub.docker.com/r/immeuble11/oc-lettings
+- [ ] URL Dashboard Sentry : https://steve-raffner.sentry.io/projects/oc-lettings/
+- [ ] URL GitHub Actions : https://github.com/steveraffner/oc-lettings-refactored/actions
 - [ ] Identifiants admin Django
 - [ ] Commandes Docker à copier-coller
 
