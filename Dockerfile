@@ -42,6 +42,9 @@ USER appuser
 # Ajouter le bin de appuser au PATH
 ENV PATH=/home/appuser/.local/bin:$PATH
 
+# Appliquer les migrations de la base de données
+RUN python manage.py migrate --noinput
+
 # Collecter les fichiers statiques
 RUN python manage.py collectstatic --noinput
 
