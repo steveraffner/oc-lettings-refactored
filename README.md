@@ -8,37 +8,37 @@ Application Django modernisée pour la gestion de locations immobilières et de 
 
 ## Installation rapide
 
-\`\`\`bash
+```bash
 git clone https://github.com/steveraffner/oc-lettings-refactored.git
 cd oc-lettings-refactored
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
-\`\`\`
+```
 
 ## Documentation complète
 
-La documentation détaillée est disponible dans le dossier \`docs/\`.
+La documentation détaillée est disponible dans le dossier `docs/`.
 
 Pour construire la documentation :
 
-\`\`\`bash
+```bash
 cd docs && make html
-\`\`\`
+```
 
 ## Tests
 
-\`\`\`bash
+```bash
 pytest --cov=. --cov-report=html
 flake8
-\`\`\`
+```
 
 ## Docker
 
-\`\`\`bash
+```bash
 docker-compose up
-\`\`\`
+```
 
 ---
 
