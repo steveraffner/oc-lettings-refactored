@@ -6,6 +6,14 @@
 
 Application Django modernisée pour la gestion de locations immobilières et de profils utilisateurs.
 
+## Liens du projet
+
+- **Application en production** : https://oc-lettings-av9a.onrender.com
+- **Documentation** : https://oc-lettings-refactored.readthedocs.io/
+- **Pipeline CI/CD** : https://github.com/steveraffner/oc-lettings-refactored/actions
+- **Docker Hub** : https://hub.docker.com/r/immeuble11/oc-lettings
+- **Monitoring Sentry** : https://steve-raffner.sentry.io/projects/oc-lettings/
+
 ## Installation rapide
 
 ```bash
