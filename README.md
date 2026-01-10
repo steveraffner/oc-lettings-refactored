@@ -246,16 +246,22 @@ Le projet utilise GitHub Actions pour automatiser :
 ```
 git push origin main
     ↓
-GitHub Actions
+GitHub Actions (https://github.com/steveraffner/oc-lettings-refactored/actions)
     ↓
 Tests + Linting
     ↓
 Build Docker Image
     ↓
-Push to Docker Hub
+Push to Docker Hub (https://hub.docker.com/r/immeuble11/oc-lettings)
     ↓
-Deploy to Render
+Deploy to Render (https://oc-lettings-av9a.onrender.com)
 ```
+
+**Liens utiles :**
+- Pipeline CI/CD : https://github.com/steveraffner/oc-lettings-refactored/actions
+- Docker Hub : https://hub.docker.com/r/immeuble11/oc-lettings
+- Application en production : https://oc-lettings-av9a.onrender.com
+- Monitoring Sentry : https://steve-raffner.sentry.io/projects/oc-lettings/
 
 ### Configuration requise
 
