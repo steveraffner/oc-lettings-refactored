@@ -260,7 +260,7 @@ git push origin main
 
 **Ouvrir Docker Hub dans le navigateur :**
 ```
-https://hub.docker.com/r/[votre-username]/oc-lettings
+https://hub.docker.com/r/immeuble11/oc-lettings
 ```
 
 ** À dire :**
@@ -276,9 +276,7 @@ https://hub.docker.com/r/[votre-username]/oc-lettings
 
 **Ouvrir l'URL de production :**
 ```
-https://[votre-app].onrender.com
-# ou
-https://[votre-app].herokuapp.com
+https://oc-lettings-av9a.onrender.com
 ```
 
 ** À dire :**
