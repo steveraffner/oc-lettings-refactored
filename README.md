@@ -254,7 +254,7 @@ Build Docker Image
     ↓
 Push to Docker Hub
     ↓
-Deploy to Production
+Deploy to Render
 ```
 
 ### Configuration requise
