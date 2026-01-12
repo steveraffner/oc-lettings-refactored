@@ -259,43 +259,11 @@ Pipeline CI/CD :
 
 ---
 
-###  DÉMONSTRATION EN DIRECT : Modification et Redéploiement
+###  DÉMONSTRATION : Pipeline CI/CD (OPTION SÛRE)
 
-#### **Étape 1 : Modifier le titre de la page d'accueil** ⏱️ 30 sec
+> ⚠️ **RECOMMANDATION** : Ne faites PAS de modification en direct pendant la démo pour éviter tout risque d'échec. Montrez plutôt l'historique des workflows qui ont réussi !
 
-```bash
-# Ouvrir le fichier
-code templates/index.html
-```
-
-**Modification à faire :**
-```html
-<!-- AVANT -->
-<title>Holiday Homes</title>
-
-<!-- APRÈS -->
-<title>OC Lettings - Welcome 2026</title>
-```
-
-** À dire :**
-> *"Je modifie maintenant le titre de la page d'accueil comme vous l'avez demandé."*
-
----
-
-#### **Étape 2 : Commit et Push** ⏱️ 30 sec
-
-```bash
-git add templates/index.html
-git commit -m "feat: Update homepage title for presentation demo"
-git push origin main
-```
-
-** À dire :**
-> *"Je pousse les modifications sur la branche main, ce qui va automatiquement déclencher le pipeline CI/CD."*
-
----
-
-#### **Étape 3 : Montrer le pipeline GitHub Actions** ⏱️ 2 min
+#### **Étape 1 : Montrer l'historique GitHub Actions** ⏱️ 2-3 min
 
 **Aller sur GitHub Actions :**
 ```
@@ -303,38 +271,22 @@ https://github.com/steveraffner/oc-lettings-refactored/actions
 ```
 
 1. Ouvrir l'onglet **Actions**
-2. Cliquer sur le workflow en cours d'exécution
-3. Expliquer chaque étape en temps réel
+2. Montrer les **workflows récents qui ont réussi** ✅
+3. Cliquer sur un workflow réussi (par exemple : "docs: add clickable link to CI/CD workflow fil...")
+4. Expliquer chaque étape **déjà terminée**
 
-** À dire pendant que le pipeline tourne :**
+** À dire en montrant un workflow réussi :**
 
-> *"Vous pouvez voir le pipeline se dérouler :*
+> *"Voici un exemple de pipeline CI/CD qui s'est exécuté avec succès lors de mon dernier commit :*
 > 
-> - ** Setup** : Installation de Python et des dépendances
-> - ** Linting** : Vérification flake8 en cours...
-> - ** Tests** : Exécution de la suite de tests avec pytest...
-> - **⏳ Build Docker** : Construction de l'image Docker...
-> - **⏳ Push Docker Hub** : Envoi de l'image vers Docker Hub...
-> - **⏳ Deploy** : Déploiement sur [Render/Railway/Heroku]...
+> - **✅ Tests et linting** : Vérification flake8 et exécution des tests pytest - 15 tests passés avec 80% de couverture
+> - **✅ Build Docker image** : Construction de l'image Docker optimisée avec build multi-stage
+> - **✅ Push Docker Hub** : Image poussée sur Docker Hub avec tag latest et SHA du commit
+> - **✅ Deploy to production** : Déploiement automatique sur Render terminé avec succès
 >
-> *Si une étape échoue, le pipeline s'arrête immédiatement et aucun déploiement n'est effectué."*
+> *Le processus complet prend environ 5-7 minutes. Si une étape échoue, le pipeline s'arrête immédiatement et aucun déploiement n'est effectué, ce qui garantit qu'aucun code défectueux n'atteint la production."*
 
 ---
-
-#### **Étape 4 : Vérifier Docker Hub** ⏱️ 30 sec
-
-**Ouvrir Docker Hub dans le navigateur :**
-```
-https://hub.docker.com/r/immeuble11/oc-lettings
-```
-
-** À dire :**
-> *"Pendant que le déploiement se termine, regardons Docker Hub :*
-> - *Voici le repository avec l'image Docker*
-> - *Système de tags : `latest` et `[SHA-commit]`*
-> - *L'image fait environ [XXX MB]*
-> - *Elle contient l'application Django, les dépendances et les fichiers statiques"*
-
 ---
 
 #### **Étape 5 : Vérifier le site déployé** ⏱️ 1 min
@@ -351,6 +303,38 @@ https://oc-lettings-av9a.onrender.com
 > -  *Les fichiers statiques se chargent correctement*
 > -  *La base de données PostgreSQL est opérationnelle"*
 
+---
+
+#### **Étape 2 : Vérifier Docker Hub** ⏱️ 30 sec
+
+**Ouvrir Docker Hub dans le navigateur :**
+```
+https://hub.docker.com/r/immeuble11/oc-lettings
+```
+
+** À dire :**
+> *"Voyons maintenant Docker Hub où les images sont stockées :*
+> - *Voici le repository avec l'image Docker de l'application*
+> - *Système de tags : `latest` pour la dernière version et `[SHA-commit]` pour chaque commit*
+> - *L'image fait environ [XXX MB] grâce au build multi-stage optimisé*
+> - *Elle contient l'application Django, toutes les dépendances et les fichiers statiques"*
+
+---
+
+#### **Étape 3 : Vérifier le site déployé** ⏱️ 1 min
+
+**Ouvrir l'URL de production :**
+```
+https://oc-lettings-av9a.onrender.com
+```
+
+** À dire :**
+> *"L'application est maintenant en production et entièrement fonctionnelle :*
+> -  *Le site répond correctement*
+> -  *Les fichiers statiques se chargent (CSS, images, JavaScript)*
+> -  *La base de données PostgreSQL est opérationnelle*
+> -  *Tout est configuré en mode production avec DEBUG=False"*
+
 **Naviguer rapidement dans le site :**
 - Page d'accueil
 - Lettings
@@ -358,7 +342,7 @@ https://oc-lettings-av9a.onrender.com
 
 ---
 
-#### **Étape 6 : Pull et Run Docker en local** ⏱️ 1 min
+#### **Étape 4 : Pull et Run Docker en local** ⏱️ 1 min
 
 ```bash
 # Pull de l'image depuis Docker Hub
@@ -373,16 +357,28 @@ docker run -p 8000:8000 \
 ```
 
 ** À dire :**
-> *"L'image Docker fonctionne parfaitement en local avec exactement la même configuration qu'en production :*
+> *"Pour démontrer la portabilité, je lance maintenant l'image Docker localement :*
+> - *Pull de l'image depuis Docker Hub*
 > - *Port 8000 exposé*
 > - *Variables d'environnement injectées*
 > - *Application prête en quelques secondes*
 > - *Build multi-stage optimisé pour réduire la taille*
 > - *Utilisateur non-root pour la sécurité*
 >
-> *Cela garantit la portabilité et la reproductibilité des déploiements."*
+> *Cela garantit que l'application fonctionne exactement de la même manière en développement, en staging et en production."*
 
 **Ouvrir `http://localhost:8000` pour vérifier**
+
+---
+
+> 💡 **OPTION ALTERNATIVE (Si vous voulez prendre un risque)** :
+> 
+> Vous pouvez tenter une modification en direct sur GitHub :
+> 1. Sur GitHub, éditez `templates/index.html`
+> 2. Changez simplement `Holiday Homes` → `Holiday Homes 2026`
+> 3. Commit et observez le pipeline
+> 
+> ⚠️ **Risque** : Si ça échoue, ça peut stresser pendant la démo. **L'option sûre ci-dessus est recommandée !**
 
 ---
 
