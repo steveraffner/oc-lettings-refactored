@@ -2,6 +2,60 @@
 
 Ce guide vous explique comment déployer l'application OC Lettings sur Render avec la création automatique d'un compte administrateur.
 
+## ⚡ Solution rapide
+
+Si le superutilisateur n'est pas créé automatiquement, exécutez ce script via la **Console Render** :
+
+```bash
+./manual-deploy.sh
+```
+
+Ce script va :
+1. Appliquer les migrations
+2. Créer le superutilisateur admin/Abc1234!
+3. Ajouter les données d'exemple
+
+## 📋 Configuration Render (Dashboard)
+
+### 1. Build Command
+```bash
+./build.sh
+```
+
+### 2. Start Command  
+```bash
+python -m gunicorn oc_lettings_site.wsgi:application
+```
+
+### 3. Variables d'environnement
+Sur le dashboard Render, ajoutez :
+
+```bash
+DJANGO_SUPERUSER_USERNAME=admin
+DJANGO_SUPERUSER_EMAIL=admin@oc-lettings.com  
+DJANGO_SUPERUSER_PASSWORD=Abc1234!
+SECRET_KEY=<généré automatiquement>
+DEBUG=false
+DJANGO_SETTINGS_MODULE=oc_lettings_site.settings
+```
+
+## 🔧 Dépannage
+
+### Le build ne fonctionne pas
+1. Vérifiez que **Build Command** = `./build.sh`
+2. Consultez les logs de build sur Render
+3. Exécutez manuellement : `./manual-deploy.sh`
+
+### Impossible de se connecter
+- URL : https://oc-lettings-av9a.onrender.com/admin/
+- Login : `admin`  
+- Password : `Abc1234!`
+
+### Reset complet
+```bash
+python manage.py reset_superuser
+```
+
 ## Configuration automatique avec render.yaml
 
 Le fichier `render.yaml` configure automatiquement votre service Render avec :
@@ -54,12 +108,30 @@ python manage.py create_superuser
 python manage.py create_sample_data
 ```
 
+### Reset complet des utilisateurs
+```bash
+python manage.py reset_superuser
+```
+
+## Scripts de diagnostic
+
+### Vérifier les utilisateurs
+```bash
+./debug-users.sh
+```
+
+### Déploiement manuel complet
+```bash
+./manual-deploy.sh
+```
+
 ## Dépannage
 
 ### Le superutilisateur n'existe pas
 - Vérifiez que les variables d'environnement sont configurées
 - Relancez un déploiement
 - Consultez les logs de build sur Render
+- Exécutez `./manual-deploy.sh` via la console Render
 
 ### Erreur de connexion
 - Vérifiez les variables `DJANGO_SUPERUSER_*`
