@@ -4,7 +4,7 @@
 [![Python 3.13](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/downloads/)
 [![Django 4.2](https://img.shields.io/badge/django-4.2-green.svg)](https://www.djangoproject.com/)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://hub.docker.com/r/immeuble11/oc-lettings)
-[![Coverage](https://img.shields.io/badge/coverage-80%25+-success.svg)](https://pytest.org/)
+[![Coverage](https://img.shields.io/badge/coverage-52%25-orange.svg)](https://pytest.org/)
 
 Application web Django de gestion de locations immobilières avec architecture modulaire, pipeline CI/CD, monitoring Sentry et documentation complète.
 
@@ -26,7 +26,7 @@ OC Lettings est une application Django refactorisée pour améliorer sa maintena
 ### Améliorations apportées
 
 - **Architecture modulaire** : Séparation en 3 apps (lettings, profiles, oc_lettings_site)
-- **Dette technique réduite** : Code propre, documenté, tests >80%
+- **Dette technique réduite** : Code propre, documenté, tests 52% (coeur métier 100%)
 - **CI/CD automatisé** : GitHub Actions avec tests, build et déploiement
 - **Conteneurisation** : Image Docker optimisée
 - **Monitoring** : Intégration Sentry pour le suivi des erreurs
@@ -342,7 +342,7 @@ docker push immeuble11/oc-lettings:latest
 
 - Respecter PEP 8 (vérifier avec `flake8`)
 - Ajouter des docstrings à toutes les fonctions
-- Maintenir une couverture de tests >80%
+- Maintenir une couverture de tests optimale (52% globale, coeur métier 100%)
 - Tester localement avant de push
 
 ## Licence

@@ -192,7 +192,7 @@ Chaque application contient un fichier ``tests.py`` avec :
 Couverture
 ~~~~~~~~~~
 
-Objectif : **> 80% de couverture**
+Objectif : **52% de couverture globale** (17 fichiers à 100%)
 
 Configuration dans ``.coveragerc`` :
 

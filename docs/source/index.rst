@@ -26,7 +26,7 @@ Caractéristiques principales
 -----------------------------
 
 * **Architecture modulaire** : Code organisé en applications Django réutilisables
-* **Tests complets** : Couverture de code > 80%
+* **Tests complets** : Couverture de code 52% (coeur métier 100%)
 * **Qualité du code** : Validation avec flake8, respect PEP 8
 * **Déploiement automatisé** : Pipeline CI/CD avec GitHub Actions
 * **Monitoring** : Intégration Sentry pour le suivi des erreurs
