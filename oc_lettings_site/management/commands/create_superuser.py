@@ -24,7 +24,7 @@ class Command(BaseCommand):
         self.stdout.write(f'Force recreation: {force}')
 
         existing_user = User.objects.filter(username=username).first()
-        
+
         if force and existing_user:
             existing_user.delete()
             self.stdout.write(self.style.WARNING(f'Deleted existing user "{username}"'))
@@ -40,7 +40,10 @@ class Command(BaseCommand):
                 self.stdout.write(
                     self.style.SUCCESS(f'Superuser "{username}" created successfully.')
                 )
-                self.stdout.write(f'User ID: {user.id}, is_staff: {user.is_staff}, is_superuser: {user.is_superuser}')
+                self.stdout.write(
+                    f'User ID: {user.id}, is_staff: {user.is_staff}, '
+                    f'is_superuser: {user.is_superuser}'
+                )
             except Exception as e:
                 self.stdout.write(
                     self.style.ERROR(f'Failed to create superuser: {e}')
@@ -50,4 +53,7 @@ class Command(BaseCommand):
             self.stdout.write(
                 self.style.WARNING(f'Superuser "{username}" already exists.')
             )
-            self.stdout.write(f'Existing user ID: {existing_user.id}, is_staff: {existing_user.is_staff}, is_superuser: {existing_user.is_superuser}')
+            self.stdout.write(
+                f'Existing user ID: {existing_user.id}, is_staff: {existing_user.is_staff}, '
+                f'is_superuser: {existing_user.is_superuser}'
+            )
