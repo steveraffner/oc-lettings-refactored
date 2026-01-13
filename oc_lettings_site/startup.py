@@ -8,13 +8,13 @@ def ensure_superuser_exists():
     if settings.configured:
         try:
             from django.contrib.auth.models import User
-            
+
             # Vérifie s'il y a déjà un superutilisateur
             if not User.objects.filter(is_superuser=True).exists():
                 username = os.environ.get('DJANGO_SUPERUSER_USERNAME', 'admin')
                 email = os.environ.get('DJANGO_SUPERUSER_EMAIL', 'admin@oc-lettings.com')
                 password = os.environ.get('DJANGO_SUPERUSER_PASSWORD', 'Abc1234!')
-                
+
                 User.objects.create_superuser(
                     username=username,
                     email=email,
