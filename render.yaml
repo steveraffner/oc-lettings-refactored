@@ -2,7 +2,7 @@ services:
   - type: web
     name: oc-lettings
     env: python
-    buildCommand: "./build.sh"
+    buildCommand: "./simple-build.sh"
     startCommand: "python -m gunicorn oc_lettings_site.wsgi:application"
     plan: free
     envVars:
