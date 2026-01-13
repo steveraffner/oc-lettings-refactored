@@ -1,4 +1,0 @@
-Lien vers le repository GitHub :
-https://github.com/steveraffner/oc-lettings-refactored
-
-Le code est accessible publiquement.
