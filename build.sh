@@ -12,8 +12,8 @@ python manage.py collectstatic --noinput
 echo "🔄 Running migrations..."
 python manage.py migrate
 
-echo "👤 Creating superuser..."
-python manage.py create_superuser
+echo "👤 Resetting and creating superuser..."
+python manage.py reset_superuser
 
 echo "📊 Creating sample data..."
 python manage.py create_sample_data
