@@ -9,7 +9,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Check if data already exists
-        if Letting.objects.exists() or Profile.objects.exists():
+        if Letting.objects.exists() and Profile.objects.exists():
             self.stdout.write(self.style.WARNING('Sample data already exists. Skipping.'))
             return
 
