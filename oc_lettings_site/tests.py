@@ -19,4 +19,4 @@ class TestHomePage:
         url = reverse('index')
         response = client.get(url)
         assert response.status_code == 200
-        assert b'Bienvenue' in response.content
+        assert b'Welcome to Holiday Homes' in response.content
