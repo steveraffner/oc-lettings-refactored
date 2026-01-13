@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: oc-lettings
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn oc_lettings_site.wsgi:application"
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.0
+      - key: DJANGO_SETTINGS_MODULE
+        value: oc_lettings_site.settings
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: DJANGO_SUPERUSER_USERNAME
+        value: admin
+      - key: DJANGO_SUPERUSER_EMAIL
+        value: admin@oc-lettings.com
+      - key: DJANGO_SUPERUSER_PASSWORD
+        value: Abc1234!

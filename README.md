@@ -272,6 +272,14 @@ Deploy to Render (https://oc-lettings-av9a.onrender.com)
 - `SENTRY_DSN` : DSN Sentry
 - `RENDER_DEPLOY_HOOK` : URL de déploiement Render
 
+**Variables d'environnement Render** (Dashboard > Environment) :
+- `DJANGO_SUPERUSER_USERNAME` : admin
+- `DJANGO_SUPERUSER_EMAIL` : admin@oc-lettings.com
+- `DJANGO_SUPERUSER_PASSWORD` : Abc1234!
+- `SECRET_KEY` : Clé secrète Django
+- `DEBUG` : false
+- `SENTRY_DSN` : DSN Sentry (optionnel)
+
 ### Déploiement manuel
 
 ```bash
